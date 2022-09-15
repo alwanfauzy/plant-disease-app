@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--  Main Color  -->
     <color name="primary">#02A863</color>
     <color name="primary_darker">#009557</color>
     <color name="secondary">#DAAF15</color>
     <color name="secondary_darker">#AE8800</color>
+    <color name="cloud">#F1F4FF</color>
 
+    <!--  Background/Foreground Color  -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="black_a50">#80000000</color>
 
+    <!--  Material Color  -->
     <color name="green_200">#A5D6A7</color>
     <color name="green_500">#4CAF50</color>
     <color name="green_700">#388E3C</color>
