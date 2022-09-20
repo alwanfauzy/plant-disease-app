@@ -14,4 +14,5 @@
     <dimen name="spacing_32">32dp</dimen>
     <dimen name="spacing_5">5dp</dimen>
     <dimen name="spacing_110">110dp</dimen>
+    <dimen name="spacing_8">8dp</dimen>
 </resources>

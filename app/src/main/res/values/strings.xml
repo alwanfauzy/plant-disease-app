@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Plant Disease</string>
+    <string name="welcome_text">Hello, %s</string>
+    <string name="location">Location</string>
+
+
+    <!-- Content Description -->
+    <string name="cd_image_wind">Image Wind</string>
+    <string name="cd_image_rain">Image Rain</string>
+    <string name="cd_image_humid">Image Humidity</string>
+    <string name="cd_image_temp">Image Temperature</string>
+    <string name="temp">Temperature</string>
+    <string name="rainfall">Rainfall</string>
+    <string name="windspeed">Windspeed</string>
+    <string name="humidity">Humidity</string>
+    <string name="temp_value">%s°C</string>
+    <string name="humid_value">%s%%</string>
+    <string name="wind_value">%sm/s</string>
+    <string name="rain_value">%smm</string>
+    <string name="desc_diagnoses">Diagnoses issues with crop</string>
+    <string name="list_diseases">List Diseases</string>
+    <string name="cd_disease">Image Disease</string>
+
 </resources>
