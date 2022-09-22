@@ -20,5 +20,8 @@
     <string name="desc_diagnoses">Diagnoses issues with crop</string>
     <string name="list_diseases">List Diseases</string>
     <string name="cd_disease">Image Disease</string>
+    <string name="cd_cover_detail">Image Cover Detail</string>
+    <string name="related_images">Related Images</string>
+    <string name="related_image">Related Image</string>
 
 </resources>

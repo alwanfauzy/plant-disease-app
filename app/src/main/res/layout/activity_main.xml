@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:overScrollMode="never"
+    android:scrollbars="none">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -34,7 +36,7 @@
                 style="@style/TextCaption.SemiBold.White"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/shape_primarydarker_r18"
+                android:background="@drawable/ripple_primarydarker_r18"
                 android:clickable="true"
                 android:drawablePadding="@dimen/spacing_12"
                 android:focusable="true"
@@ -204,7 +206,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_24"
-            android:background="?attr/selectableItemBackground"
             app:cardCornerRadius="@dimen/spacing_5"
             app:cardElevation="@dimen/spacing_5"
             app:layout_constraintEnd_toEndOf="@id/cvWeather"
@@ -253,11 +254,12 @@
             android:id="@+id/rvDisease"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/spacing_24"
+            android:layout_marginHorizontal="@dimen/spacing_8"
+            android:layout_marginBottom="@dimen/spacing_16"
             android:nestedScrollingEnabled="false"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/cvWeather"
-            app:layout_constraintStart_toStartOf="@id/cvWeather"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvListDisease"
             tools:listitem="@layout/item_disease" />
 

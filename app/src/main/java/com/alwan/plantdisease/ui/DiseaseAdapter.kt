@@ -17,7 +17,7 @@ class DiseaseAdapter(private val callback: DiseaseCallback) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
-        ItemDiseaseBinding.inflate(LayoutInflater.from(parent.context))
+        ItemDiseaseBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

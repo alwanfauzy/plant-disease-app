@@ -1,5 +1,6 @@
 package com.alwan.plantdisease.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
@@ -7,7 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.alwan.plantdisease.R
 import com.alwan.plantdisease.databinding.ActivityMainBinding
 import com.alwan.plantdisease.domain.entity.Disease
+import com.alwan.plantdisease.ui.detail.DetailActivity
 import com.alwan.plantdisease.util.DummyData
+import com.alwan.plantdisease.util.MarginItemDecoration
 import com.alwan.plantdisease.util.showToast
 
 class MainActivity : AppCompatActivity(), DiseaseAdapter.DiseaseCallback {
@@ -37,6 +40,13 @@ class MainActivity : AppCompatActivity(), DiseaseAdapter.DiseaseCallback {
     private fun initRv() = with(binding.rvDisease) {
         layoutManager = LinearLayoutManager(this@MainActivity)
         adapter = diseaseAdapter
+
+        addItemDecoration(
+            MarginItemDecoration(
+                spaceHeight = resources.getDimension(R.dimen.spacing_16).toInt(),
+                startEndHeight = resources.getDimension(R.dimen.spacing_8).toInt()
+            )
+        )
     }
 
     private fun initVm() {
@@ -48,7 +58,11 @@ class MainActivity : AppCompatActivity(), DiseaseAdapter.DiseaseCallback {
         _binding = null
     }
 
-    override fun onDiseaseClicked(disease: Disease) {
-        showToast("${disease.name} is Clicked")
-    }
+    override fun onDiseaseClicked(disease: Disease) = startActivity(
+        Intent(this, DetailActivity::class.java).putExtra(
+            DetailActivity.DISEASE,
+            disease
+        )
+    )
+
 }
