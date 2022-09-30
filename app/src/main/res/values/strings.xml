@@ -23,5 +23,17 @@
     <string name="cd_cover_detail">Image Cover Detail</string>
     <string name="related_images">Related Images</string>
     <string name="related_image">Related Image</string>
+    <string name="picker_title">Pick crop image with</string>
+    <string name="cd_camera">Camera Icon</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="cd_back">Image Back</string>
+    <string name="cd_flash">Image Flash</string>
+    <string name="cd_shot">Image Shot</string>
+    <string name="result">Result</string>
+    <string name="cd_image_result">Image Crop Result</string>
+    <string name="picker_repick">Or Repick with</string>
+    <string name="submit">Submit</string>
+    <string name="process_please">Processing crop image\n please don\'t leave this window</string>
 
 </resources>

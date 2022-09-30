@@ -19,4 +19,9 @@
     <dimen name="spacing_14">14dp</dimen>
     <dimen name="spacing_150">150dp</dimen>
     <dimen name="spacing_100">100dp</dimen>
+    <dimen name="spacing_42">42dp</dimen>
+    <dimen name="spacing_36">36dp</dimen>
+    <dimen name="spacing_20">20dp</dimen>
+    <dimen name="spacing_62">62dp</dimen>
+    <dimen name="spacing_line">1dp</dimen>
 </resources>
