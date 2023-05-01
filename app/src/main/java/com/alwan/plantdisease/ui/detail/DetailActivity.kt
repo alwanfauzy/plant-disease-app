@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alwan.plantdisease.R
 import com.alwan.plantdisease.databinding.ActivityDetailBinding
-import com.alwan.plantdisease.domain.entity.Disease
+import com.alwan.plantdisease.core.domain.entity.Disease
 import com.alwan.plantdisease.util.MarginItemDecoration
 import com.alwan.plantdisease.util.loadImage
 import com.alwan.plantdisease.util.showToast
@@ -21,8 +21,7 @@ class DetailActivity : AppCompatActivity(), RelatedImagesAdapter.RelatedImageCal
         _binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbarDetail)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        setupToolbar()
 
         val disease = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             intent.getParcelableExtra(DISEASE, Disease::class.java)
@@ -31,6 +30,12 @@ class DetailActivity : AppCompatActivity(), RelatedImagesAdapter.RelatedImageCal
         }
 
         populateDetail(disease)
+    }
+
+    private fun setupToolbar() = binding.toolbarDetail.apply {
+        setSupportActionBar(this)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        setSupportActionBar(this)
     }
 
     private fun populateDetail(item: Disease?) = with(binding) {

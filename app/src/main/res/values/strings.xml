@@ -2,6 +2,7 @@
     <string name="app_name">Plant Disease</string>
     <string name="welcome_text">Hello, %s</string>
     <string name="location">Location</string>
+    <string name="need_permission">Need Permission</string>
 
 
     <!-- Content Description -->
@@ -34,6 +35,7 @@
     <string name="cd_image_result">Image Crop Result</string>
     <string name="picker_repick">Or Repick with</string>
     <string name="submit">Submit</string>
-    <string name="process_please">Processing crop image\n please don\'t leave this window</string>
+    <string name="process_please">Processing crop image</string>
+    <string name="loading_weather">Loading Weather</string>
 
 </resources>

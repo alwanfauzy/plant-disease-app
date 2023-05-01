@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".ui.MainActivity">
+        tools:context=".ui.main.MainActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clHeader"
@@ -39,9 +39,12 @@
                 android:background="@drawable/ripple_primarydarker_r18"
                 android:clickable="true"
                 android:drawablePadding="@dimen/spacing_12"
+                android:ellipsize="end"
                 android:focusable="true"
                 android:gravity="center"
                 android:includeFontPadding="false"
+                android:maxWidth="200dp"
+                android:maxLines="1"
                 android:paddingHorizontal="@dimen/spacing_22"
                 android:paddingVertical="@dimen/spacing_10"
                 android:text="@string/location"
@@ -63,7 +66,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/clHeader">
 
+            <LinearLayout
+                android:id="@+id/llWeatherLoading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="@dimen/spacing_110"
+                    android:layout_height="@dimen/spacing_110"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/loading" />
+            </LinearLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clWeatherInfo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="@dimen/spacing_22">

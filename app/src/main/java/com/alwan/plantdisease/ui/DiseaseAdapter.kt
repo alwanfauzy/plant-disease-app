@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.alwan.plantdisease.databinding.ItemDiseaseBinding
-import com.alwan.plantdisease.domain.entity.Disease
+import com.alwan.plantdisease.core.domain.entity.Disease
 import com.alwan.plantdisease.util.loadImage
 
 class DiseaseAdapter(private val callback: DiseaseCallback) :

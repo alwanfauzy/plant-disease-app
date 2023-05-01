@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/spacing_24"
-    android:background="@drawable/shape_r5"
+    android:background="@drawable/shape_dialog_r5"
     android:backgroundTint="@color/white">
 
     <LinearLayout
@@ -60,7 +59,7 @@
         android:gravity="center"
         android:orientation="vertical"
         android:paddingVertical="@dimen/spacing_32"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,10 +72,12 @@
             android:text="@string/process_please"
             android:textAlignment="center" />
 
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_14" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="86dp"
+            android:layout_height="86dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -107,8 +108,8 @@
             android:layout_marginTop="@dimen/spacing_20"
             android:layout_marginBottom="@dimen/spacing_42"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:includeFontPadding="false"
             android:drawablePadding="@dimen/spacing_8"
+            android:includeFontPadding="false"
             android:padding="@dimen/spacing_8"
             android:text="@string/camera"
             android:textAlignment="center"
@@ -124,11 +125,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:drawablePadding="@dimen/spacing_8"
             android:includeFontPadding="false"
             android:padding="@dimen/spacing_8"
             android:text="@string/gallery"
             android:textAlignment="center"
-            android:drawablePadding="@dimen/spacing_8"
             app:drawableTopCompat="@drawable/ic_gallery"
             app:layout_constraintBottom_toBottomOf="@id/tvCamera"
             app:layout_constraintEnd_toEndOf="parent"

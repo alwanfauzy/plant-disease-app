@@ -69,6 +69,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvRelatedImages"
+                tools:itemCount="1"
                 tools:listitem="@layout/item_related_image" />
 
             <androidx.cardview.widget.CardView
@@ -93,7 +94,7 @@
                         style="@style/TextNormal.White"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawablePadding="@dimen/spacing_8"
+                        android:drawablePadding="@dimen/spacing_16"
                         android:gravity="center_vertical"
                         android:includeFontPadding="false"
                         app:drawableStartCompat="@drawable/ic_cause"
@@ -124,7 +125,7 @@
                         style="@style/TextNormal.White"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawablePadding="@dimen/spacing_8"
+                        android:drawablePadding="@dimen/spacing_16"
                         android:gravity="center_vertical"
                         android:includeFontPadding="false"
                         app:drawableStartCompat="@drawable/ic_countermeasure"
