@@ -8,9 +8,7 @@ import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
-import android.location.Location
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -24,9 +22,8 @@ import com.alwan.plantdisease.core.domain.entity.WeatherInfo
 import com.alwan.plantdisease.databinding.ActivityMainBinding
 import com.alwan.plantdisease.ui.DiseaseAdapter
 import com.alwan.plantdisease.ui.detail.DetailActivity
-import com.alwan.plantdisease.util.DummyData
+import com.alwan.plantdisease.util.Data
 import com.alwan.plantdisease.util.MarginItemDecoration
-import com.alwan.plantdisease.util.orZero
 import com.alwan.plantdisease.util.showToast
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
@@ -159,7 +156,7 @@ class MainActivity : AppCompatActivity(), DiseaseAdapter.DiseaseCallback {
     }
 
     private fun initVm() {
-        diseaseAdapter.submitList(DummyData.getDummiesDisease())
+        diseaseAdapter.submitList(Data.getPlantDisease())
     }
 
     override fun onDestroy() {

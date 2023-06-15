@@ -18,7 +18,7 @@ import com.alwan.plantdisease.R
 import com.alwan.plantdisease.databinding.DialogDiseasePickerBinding
 import com.alwan.plantdisease.ui.camera.CameraActivity
 import com.alwan.plantdisease.ui.detail.DetailActivity
-import com.alwan.plantdisease.util.DummyData
+import com.alwan.plantdisease.util.Data
 import com.alwan.plantdisease.util.toFile
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -148,7 +148,7 @@ class DiseasePickerDialogFragment : DialogFragment() {
             val detailIntent = Intent(requireActivity(), DetailActivity::class.java).apply {
                 putExtra(
                     DetailActivity.DISEASE,
-                    DummyData.getDummiesDisease()[0]
+                    Data.getPlantDisease()[0]
                 )
             }
             requireContext().startActivity(detailIntent)
