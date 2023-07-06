@@ -16,12 +16,14 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alwan.plantdisease.R
-import com.alwan.plantdisease.core.data.Resource
-import com.alwan.plantdisease.core.domain.entity.Disease
-import com.alwan.plantdisease.core.domain.entity.WeatherInfo
+import com.alwan.plantdisease.core.data.util.Resource
+import com.alwan.plantdisease.core.domain.entity.weather.Disease
+import com.alwan.plantdisease.core.domain.entity.weather.WeatherInfo
 import com.alwan.plantdisease.databinding.ActivityMainBinding
 import com.alwan.plantdisease.ui.DiseaseAdapter
 import com.alwan.plantdisease.ui.detail.DetailActivity
+import com.alwan.plantdisease.ui.main.dialog.SettingsDialogFragment
+import com.alwan.plantdisease.ui.main.dialog.DiseasePickerDialogFragment
 import com.alwan.plantdisease.util.Data
 import com.alwan.plantdisease.util.MarginItemDecoration
 import com.alwan.plantdisease.util.showToast
@@ -30,6 +32,7 @@ import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.google.android.gms.tasks.Task
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.MultipartBody
 import java.util.*
 
 
@@ -39,6 +42,7 @@ class MainActivity : AppCompatActivity(), DiseaseAdapter.DiseaseCallback {
     private val binding get() = _binding!!
     private val diseaseAdapter = DiseaseAdapter(this)
     private val weatherViewModel: WeatherViewModel by viewModels()
+    private val mainViewModel: MainViewModel by viewModels()
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,6 +68,7 @@ class MainActivity : AppCompatActivity(), DiseaseAdapter.DiseaseCallback {
                     showLoadingWeather(false)
                     populateWeatherInfo(res.data)
                 }
+
                 is Resource.Error -> showToast(res.message)
             }
         }
@@ -103,6 +108,10 @@ class MainActivity : AppCompatActivity(), DiseaseAdapter.DiseaseCallback {
             } else {
                 showDialogDiseasePicker()
             }
+        }
+
+        cvSettings.setOnClickListener {
+            showDialogSettings()
         }
 
         tvLocation.setOnClickListener {
@@ -177,6 +186,12 @@ class MainActivity : AppCompatActivity(), DiseaseAdapter.DiseaseCallback {
         dialogDiseasePicker.show(supportFragmentManager, DIALOG_DISEASE_PICKER_TAG)
     }
 
+    private fun showDialogSettings() {
+        val dialogSettings = SettingsDialogFragment()
+
+        dialogSettings.show(supportFragmentManager, DIALOG_SETTINGS)
+    }
+
     private fun showLocationPrompt() {
         val locationRequest = LocationRequest.create()
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
@@ -208,6 +223,7 @@ class MainActivity : AppCompatActivity(), DiseaseAdapter.DiseaseCallback {
                             // Ignore, should be an impossible error.
                         }
                     }
+
                     LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE -> {
                         // Location settings are not satisfied. But could be fixed by showing the
                         // user a dialog.
@@ -233,6 +249,7 @@ class MainActivity : AppCompatActivity(), DiseaseAdapter.DiseaseCallback {
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
@@ -250,6 +267,8 @@ class MainActivity : AppCompatActivity(), DiseaseAdapter.DiseaseCallback {
 
     companion object {
         private const val DIALOG_DISEASE_PICKER_TAG = "dialog_disease_picker"
+        private const val DIALOG_SETTINGS = "dialog_settings"
+
         private val REQUEST_PERMISSIONS = arrayOf(
             Manifest.permission.CAMERA,
             Manifest.permission.ACCESS_COARSE_LOCATION,

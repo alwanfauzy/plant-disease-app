@@ -1,9 +1,9 @@
-package com.alwan.plantdisease.core.data
+package com.alwan.plantdisease.core.data.mapper
 
 import com.alwan.plantdisease.core.data.remote.response.weather.Coord
 import com.alwan.plantdisease.core.data.remote.response.weather.WeatherResponse
-import com.alwan.plantdisease.core.domain.entity.Coordinate
-import com.alwan.plantdisease.core.domain.entity.WeatherInfo
+import com.alwan.plantdisease.core.domain.entity.weather.Coordinate
+import com.alwan.plantdisease.core.domain.entity.weather.WeatherInfo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 

@@ -1,6 +1,4 @@
-package com.alwan.plantdisease.core.domain.entity
-
-import com.alwan.plantdisease.core.data.remote.response.weather.*
+package com.alwan.plantdisease.core.domain.entity.weather
 
 data class WeatherInfo (
     val base: String,

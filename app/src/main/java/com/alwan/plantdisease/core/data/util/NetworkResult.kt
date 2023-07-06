@@ -1,4 +1,4 @@
-package com.alwan.plantdisease.core.data.remote.network
+package com.alwan.plantdisease.core.data.util
 
 sealed class NetworkResult<T : Any> {
     class Success<T : Any>(val data: T) : NetworkResult<T>()

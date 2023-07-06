@@ -7,4 +7,6 @@ object Constant {
     const val WEATHER_API_KEY = BuildConfig.WEATHER_API_KEY
 
     const val ONECALL_WEATHER = "onecall"
+    const val WEATHER = "weather"
+    const val FLASK = "flask"
 }

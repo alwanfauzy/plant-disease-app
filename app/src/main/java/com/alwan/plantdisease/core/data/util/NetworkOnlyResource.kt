@@ -1,9 +1,5 @@
-package com.alwan.plantdisease.core.data
+package com.alwan.plantdisease.core.data.util
 
-import com.alwan.plantdisease.core.data.remote.network.NetworkResult
-import com.alwan.plantdisease.core.data.remote.network.onError
-import com.alwan.plantdisease.core.data.remote.network.onException
-import com.alwan.plantdisease.core.data.remote.network.onSuccess
 import kotlinx.coroutines.flow.*
 
 abstract class NetworkOnlyResource<ResultType, RequestType : Any> {

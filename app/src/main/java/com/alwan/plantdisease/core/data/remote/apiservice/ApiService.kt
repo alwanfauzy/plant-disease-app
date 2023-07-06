@@ -1,4 +1,4 @@
-package com.alwan.plantdisease.core.data.remote.network
+package com.alwan.plantdisease.core.data.remote.apiservice
 
 import com.alwan.plantdisease.core.data.remote.response.weather.WeatherResponse
 import com.alwan.plantdisease.util.Constant

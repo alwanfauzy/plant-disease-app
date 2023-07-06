@@ -37,5 +37,6 @@
     <string name="submit">Submit</string>
     <string name="process_please">Processing crop image</string>
     <string name="loading_weather">Loading Weather</string>
+    <string name="save">Save</string>
 
 </resources>

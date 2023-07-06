@@ -3,10 +3,11 @@ package com.alwan.plantdisease.ui.detail
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alwan.plantdisease.R
 import com.alwan.plantdisease.databinding.ActivityDetailBinding
-import com.alwan.plantdisease.core.domain.entity.Disease
+import com.alwan.plantdisease.core.domain.entity.weather.Disease
 import com.alwan.plantdisease.util.MarginItemDecoration
 import com.alwan.plantdisease.util.loadImage
 import com.alwan.plantdisease.util.showToast
@@ -28,6 +29,8 @@ class DetailActivity : AppCompatActivity(), RelatedImagesAdapter.RelatedImageCal
         } else {
             intent.getParcelableExtra(DISEASE)
         }
+
+        Log.d("DISEASE", disease?.name.toString())
 
         populateDetail(disease)
     }

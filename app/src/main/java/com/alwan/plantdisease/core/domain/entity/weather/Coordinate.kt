@@ -1,4 +1,4 @@
-package com.alwan.plantdisease.core.domain.entity
+package com.alwan.plantdisease.core.domain.entity.weather
 
 import com.google.gson.annotations.SerializedName
 

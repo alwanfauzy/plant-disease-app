@@ -1,6 +1,6 @@
 package com.alwan.plantdisease.util
 
-import com.alwan.plantdisease.core.domain.entity.Disease
+import com.alwan.plantdisease.core.domain.entity.weather.Disease
 
 object Data {
     private val imageCornBlight = listOf(
@@ -52,7 +52,7 @@ object Data {
         return plantDisease
     }
 
-    private fun getPotatoDisease() = listOf(
+    fun getPotatoDisease() = listOf(
         Disease(
             id = "POTATO-EARLYBLIGHT",
             name = "Early Blight",
@@ -73,7 +73,7 @@ object Data {
         ),
     )
 
-    private fun getCornDisease() = listOf(
+    fun getCornDisease() = listOf(
         Disease(
             id = "CORN-BLIGHT",
             name = "Blight",

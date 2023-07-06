@@ -1,5 +1,9 @@
 package com.alwan.plantdisease.di
 
+import com.alwan.plantdisease.core.domain.usecase.FlaskInteractor
+import com.alwan.plantdisease.core.domain.usecase.FlaskUseCase
+import com.alwan.plantdisease.core.domain.usecase.PreferencesInteractor
+import com.alwan.plantdisease.core.domain.usecase.PreferencesUseCase
 import com.alwan.plantdisease.core.domain.usecase.WeatherInteractor
 import com.alwan.plantdisease.core.domain.usecase.WeatherUseCase
 import dagger.Binds
@@ -14,4 +18,12 @@ abstract class AppModule {
     @Binds
     @ViewModelScoped
     abstract fun bindWeatherUseCase(weathterInteractor: WeatherInteractor): WeatherUseCase
+
+    @Binds
+    @ViewModelScoped
+    abstract fun bindFlaskUseCase(flaskInteractor: FlaskInteractor): FlaskUseCase
+
+    @Binds
+    @ViewModelScoped
+    abstract fun bindPreferencesUseCase(preferencesInteractor: PreferencesInteractor): PreferencesUseCase
 }

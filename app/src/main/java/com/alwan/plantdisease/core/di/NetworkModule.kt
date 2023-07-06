@@ -1,17 +1,22 @@
 package com.alwan.plantdisease.core.di
 
 import com.alwan.plantdisease.BuildConfig
-import com.alwan.plantdisease.core.data.remote.network.ApiService
+import com.alwan.plantdisease.core.data.local.preferences.PreferencesDataStore
+import com.alwan.plantdisease.core.data.remote.apiservice.FlaskApiService
+import com.alwan.plantdisease.core.data.remote.apiservice.ApiService
 import com.alwan.plantdisease.util.Constant
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -25,14 +30,20 @@ class NetworkModule {
 
         return OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(loggingInterceptor))
-            .connectTimeout(120, TimeUnit.SECONDS)
-            .readTimeout(120, TimeUnit.SECONDS)
+            .connectTimeout(2, TimeUnit.MINUTES)
+            .writeTimeout(2, TimeUnit.MINUTES)
+            .readTimeout(2, TimeUnit.MINUTES)
             .build()
     }
 
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideFlaskApiService(@Named(Constant.FLASK) retrofit: Retrofit): FlaskApiService =
+        retrofit.create(FlaskApiService::class.java)
 
     @Provides
     @Singleton
@@ -44,6 +55,23 @@ class NetworkModule {
         .addConverterFactory(gsonConverterFactory)
         .client(client)
         .build()
+
+    @Provides
+    @Singleton
+    @Named(Constant.FLASK)
+    fun provideFlaskRetrofit(
+        client: OkHttpClient,
+        gsonConverterFactory: GsonConverterFactory,
+        preferencesDataStore: PreferencesDataStore,
+    ): Retrofit {
+        val baseUrl = runBlocking { preferencesDataStore.baseUrlFlow.first() }
+
+        return Retrofit.Builder()
+            .client(client)
+            .addConverterFactory(gsonConverterFactory)
+            .baseUrl(baseUrl)
+            .build()
+    }
 
     @Provides
     @Singleton

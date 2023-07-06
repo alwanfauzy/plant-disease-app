@@ -1,7 +1,7 @@
 package com.alwan.plantdisease.core.domain.usecase
 
-import com.alwan.plantdisease.core.data.Resource
-import com.alwan.plantdisease.core.domain.entity.WeatherInfo
+import com.alwan.plantdisease.core.data.util.Resource
+import com.alwan.plantdisease.core.domain.entity.weather.WeatherInfo
 import kotlinx.coroutines.flow.Flow
 
 interface WeatherUseCase {
